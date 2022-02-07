@@ -60,6 +60,8 @@ $api->get('api/logout', function() {
 foreach ($modes as &$mode) {
     echo $mode->baseRoute;
 
+    Request::begin();
+    Request::requireMode($mode->name);
     foreach($mode->endpoints as &$endpoint) {
         $url = 'api/' . $mode->baseRoute . '/' . $endpoint->route;
         switch($endpoint['method']) {

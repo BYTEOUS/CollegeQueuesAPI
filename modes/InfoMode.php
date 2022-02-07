@@ -1,15 +1,16 @@
 <?php
 
 class InfoMode extends Mode {
-    public string $baseRoute = 'info'
+    public function getName() { return 'info'; }
+    public function getBaseRoute() { return 'info'; }
 
-    public array $endpoints = [
-        array(
+    public function getEndpoints() {
+       return array(
             'method' => 'GET',
             'route' => '',
             'handler' => function() {
                 
             }
-        )
-    ]
+        );
+    }
 }
